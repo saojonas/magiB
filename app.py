@@ -36,6 +36,9 @@ def carregar_dados():
     # A lógica estava certa, só precisava ser executada!
     df['e_seguranca'] = df['item'].apply(lambda x: any(t.lower() in str(x).lower() for t in termos_seguranca))
     
+    df['observacao'] = df['observacao'].fillna('Sem observação')
+
+
     # AGORA SIM, retornamos o df pronto
     return df
 
